@@ -44,6 +44,18 @@
       controller: 'StoreController',
       controllerAs: 'storeCtrl'
     })
+    .state('profile',{
+      url: '/profile',
+      templateUrl: 'orders.html',
+      controller: 'StoreController',
+      controllerAs: 'storeCtrl'
+    })
+    .state('edit',{
+      url: '/profile/edit',
+      templateUrl: 'orders.html',
+      controller: 'StoreController',
+      controllerAs: 'storeCtrl'
+    })
 
     $locationProvider.html5Mode({
       enabled: true,
