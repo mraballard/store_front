@@ -76,6 +76,3 @@ router.get('/:id', authorize, function(req,res){
 });
 
 module.exports = router;
-
-
-
