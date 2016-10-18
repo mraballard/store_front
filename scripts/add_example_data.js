@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/nozama');
+mongoose.connect('mongodb://localhost/storeapp');
 var db = mongoose.connection;
 
 var csvdata = require('csvdata');
