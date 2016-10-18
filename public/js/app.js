@@ -12,8 +12,8 @@
       params: {
         user: null
       },
-      controller: 'AuthController',
-      controllerAs: 'authCtrl'
+      controller: 'StoreController',
+      controllerAs: 'storeCtrl'
     })
     .state('login',{
       url: '/login',
