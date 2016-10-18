@@ -1,7 +1,7 @@
-Sign up for an account!
 
-<form ng-submit="authCtrl" class="login-form" action="index.html" method="post">
-  <input type="textbox" name="username" placeholder="username">
-  <input type="password" name="name" placeholder="password">
+<form ng-submit="authCtrl.signup(userPass)" class="login-form">
+  {{authCtrl.testMessage}}
+  <input ng-model="userPass.username" type="textbox" name="username" placeholder="username">
+  <input ng-model="userPass.password" type="password" name="password" placeholder="password">
   <button type="submit">Register</button>
 </form>
