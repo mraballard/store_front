@@ -3,9 +3,9 @@
   angular.module('storeFront')
   .controller('StoreController', StoreController);
 
-  StoreController.$inject = ['$http','$state'];
+  StoreController.$inject = ['$http','$state','$cart'];
 
-  function StoreController($http, $state) {
+  function StoreController($http, $state, $cart) {
     this.all = [];
     var self = this;
     this.searchStr = ''; // Initialize search value to '' to return all products in database
@@ -26,7 +26,8 @@
       });
     }
 
-
+    console.log('this is the cart: '+$cart);
   }
 
 })()
+console.log('storeController.js');
