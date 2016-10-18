@@ -1,9 +1,9 @@
+h1#index-logo {
+  margin-top: 15px;
+}
+
 a.index-nav {
   float: right;
   margin: 15px;
   color: blue;
-}
-
-h1#index-logo {
-  margin-top: 15px;
 }
