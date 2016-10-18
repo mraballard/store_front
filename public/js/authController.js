@@ -30,6 +30,9 @@
       });
     } // closes signup function
 
+    this.login = function(userPass) {
+      console.log('login function');
+    }
   }  // closes AuthController function
 
 })();
