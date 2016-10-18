@@ -4,10 +4,15 @@ h1#index-logo {
 
 nav {
   display: flex;
-  float: right;
   justify-content: flex-end;
   align-content: space-between;
 }
 nav a {
   margin: 10px;
+}
+div.container {
+  border: 2px solid black;
+}
+main {
+    padding: 5vmin;
 }
