@@ -7,6 +7,7 @@
 
   function AuthController($http, $state, $cart, $stateParams) {
     this.testMessage = 'Hello';
+    var self = this;
     this.click = function(){
       console.log('click!');
     }
@@ -27,9 +28,28 @@
       })
       .catch(function(error){
         console.log(error);
+      })
+      .then(function(){
+        self.isUserLoggedIn = true;
       });
     } // closes signup function
 
+    this.login = function(userPass) {
+      $http.post('/api/users/login',
+      {
+        username: userPass.username,
+        password: userPass.password
+      })
+      .catch(function(error){
+        // console.log(error);
+      })
+      .then(function(response){
+        // console.log(response);
+        self.user = response.data.user;
+        $state.go('home', {url: '/home', user: response.data.user});
+      })
+
+    } // closes login function
   }  // closes AuthController function
 
 })();
