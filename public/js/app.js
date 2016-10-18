@@ -1,5 +1,5 @@
 (function(){
-  angular.module('storeFront', ['ui.router'])
+  angular.module('StoreFront', ['ui.router'])
   .config(MainRouter);
 
   function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){

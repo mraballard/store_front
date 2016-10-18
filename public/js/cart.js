@@ -1,6 +1,6 @@
 (function(){
 
-  angular.module('storeFront')
+  angular.module('StoreFront')
   .factory('$cart', Cart);
 
   function Cart(){
