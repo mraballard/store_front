@@ -19,7 +19,8 @@
         console.log(error);
       })
       .then(function(response){
-        self.all = response.data.filter(function(el){
+        console.log(response);
+        self.all = response.data.products.filter(function(el){
           return el.name.toLowerCase().indexOf(self.searchStr.toLowerCase()) !== -1;
         });
       })
@@ -27,7 +28,7 @@
         console.log(error);
       });
     };
-    this.addToCart = function(id,quantity) {
+    this.addToCart = function(id,quantity,index) {
       if (!quantity) {
         $state.go('home', {url: '/home'})
         .catch(function(error){
@@ -46,7 +47,7 @@
     this.deleteFromCart = function(index) {
       $cart.items.splice(index,1);
     };
-
+    this.getProducts();
   }
 
 })()

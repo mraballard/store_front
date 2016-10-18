@@ -13,7 +13,7 @@ var authorize = function(req,res,next){
   }
 }
 
-router.get('/', authorize,function(req, res){
+router.get('/', function(req, res){
   var query = Product.find({});
   query.then(function(products){
     res.json({products: products, user: req.user});

@@ -1,12 +1,12 @@
 (function(){
-  angular.module('nozama')
-    .directive('productListing', productListingView);
+  angular.module('StoreFront')
+    .directive('productListing', productListing);
 
-  function productListingView(){
+  function productListing(){
     return {
       restrict: 'E',
       replace: true,
-      templateUrl: '_productListingView.html',
+      templateUrl: '_productListing.html',
     };
   };
 })()

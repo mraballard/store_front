@@ -1,7 +1,19 @@
-<h3> PRODUCT LISTINGS </h3>
+<h3> Shop! </h3>
 
-<section id="home-product-listings">
-  <div ng-repeat="product in storeCtrl.productListings">
-    <product-listing></product-listing>
+<section id="products">
+  <div ng-repeat="product in storeCtrl.all">
+
+    <div>
+      <h2>{{product.name}}</h2>
+      <h5>{{product.price | currency}}</h5>
+      <p>{{product.description}}</p>
+      <form ng-submit="storeCtrl.addToCart(product._id, store.quantityAtShopIndex[$index],$index)">
+        <label for="quantity">Quantity</label>
+        <select name="quantity" ng-model="store.quantityAtShopIndex[$index]">
+          <option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]" value="{{num}}">{{num}}</option>
+        </select>
+        <input type='submit' value="Add to Cart">
+      </form>
+    </div>
   </div>
 </section>
