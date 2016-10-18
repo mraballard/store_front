@@ -6,6 +6,10 @@
   AuthController.$inject = ['$http','$state','$cart'];
 
   function AuthController($http, $state, $cart) {
+    this.test = function() {
+      console.log('this is the cart: '+$cart);
+
+    }
 
   }
 })();
