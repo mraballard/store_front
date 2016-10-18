@@ -19,7 +19,8 @@
         console.log(error);
       })
       .then(function(response){
-        self.all = response.data.filter(function(el){
+        console.log(response);
+        self.all = response.data.products.filter(function(el){
           return el.name.toLowerCase().indexOf(self.searchStr.toLowerCase()) !== -1;
         });
       })
@@ -46,7 +47,7 @@
     this.deleteFromCart = function(index) {
       $cart.items.splice(index,1);
     };
-
+    this.getProducts();
   }
 
 })()
