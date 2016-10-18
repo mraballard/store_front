@@ -5,25 +5,48 @@ var express         = require('express');
 var bodyParser      = require('body-parser');
 var mongoose        = require('mongoose');
 var logger          = require('morgan');
+var methodOverride  = require('method-override');
+var passport        = require('passport');
+var LocalStrategy   = require('passport-local').Strategy;
 var port            = 4000 || process.env.PORT;
 var app             = express();
 
 mongoose.Promise = global.Promise;
 
-// create connect to store app db
+// create connection to store app db
 mongoose.connect('mongodb://localhost/storeapp');
+
+// Access User Model
+var User = require('./models/user');
 
 // ==================================
 // MIDDLEWARE / CONFIGURATION
 // ===================================
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
 app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 // =================================
 // ROUTING MIDDLEWARE
 // ==================================
+app.use('/api/products', require('./controllers/productsController'));
+app.use('/api/orders', require('./controllers/ordersController'));
+app.use(function(req, res, next){
+  res.redirect("/");
+});
 
 app.listen(port, function(){
   console.log('=======================');
