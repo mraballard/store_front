@@ -28,7 +28,7 @@
         console.log(error);
       });
     };
-    this.addToCart = function(id,quantity) {
+    this.addToCart = function(id,quantity,index) {
       if (!quantity) {
         $state.go('home', {url: '/home'})
         .catch(function(error){
