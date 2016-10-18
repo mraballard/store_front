@@ -1,6 +1,6 @@
 (function(){
 
-  angular.module('storeFront')
+  angular.module('StoreFront')
   .controller('StoreController', StoreController);
 
   StoreController.$inject = ['$http','$state','$cart'];
