@@ -19,7 +19,7 @@
         console.log(error);
       })
       .then(function(response){
-        console.log(response);
+        console.log('getProducts function' +response);
         self.all = response.data.products.filter(
           function(el)  {
           return el.name.toLowerCase().indexOf(self.searchStr.toLowerCase()) !== -1;

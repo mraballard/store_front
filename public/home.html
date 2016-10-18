@@ -2,11 +2,11 @@
 
 <section id="products">
   <div ng-repeat="product in storeCtrl.all">
-
     <div>
       <h2>{{product.name}}</h2>
       <h5>{{product.price | currency}}</h5>
       <p>{{product.description}}</p>
+
       <form ng-submit="storeCtrl.addToCart(product._id, storeCtrl.quantityAtShopIndex[$index],$index)">
         <label for="quantity">Quantity</label>
         <select name="quantity" ng-model="storeCtrl.quantityAtShopIndex[$index]">
@@ -14,6 +14,7 @@
         </select>
         <input type='submit' value="Add to Cart">
       </form>
+
     </div>
   </div>
 </section>
