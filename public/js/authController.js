@@ -32,7 +32,21 @@
 
     this.login = function(userPass) {
       console.log('login function');
-    }
+      console.log(userPass);
+      $http.post('/api/users/login',
+      {
+        username: userPass.username,
+        password: userPass.password
+      })
+      .catch(function(error){
+        console.log(error);
+      })
+      .then(function(response){
+        console.log('login successful!');
+        console.log(response);
+        $state.go('home', {url: '/home'});
+      });
+    } // closes login function
   }  // closes AuthController function
 
 })();

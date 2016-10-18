@@ -1,5 +1,5 @@
 <form ng-submit="authCtrl.login(userPass)" class="login-form">
-  <input type="textbox" name="username" placeholder="username">
-  <input type="password" name="password" placeholder="password">
+  <input ng-model="userPass.username" type="textbox" name="username" placeholder="username">
+  <input ng-model="userPass.password" type="password" name="password" placeholder="password">
   <button type="submit">Submit</button>
 </form>

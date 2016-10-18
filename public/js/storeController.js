@@ -20,8 +20,10 @@
       })
       .then(function(response){
         console.log(response);
-        self.all = response.data.products.filter(function(el){
+        self.all = response.data.products.filter(
+          function(el)  {
           return el.name.toLowerCase().indexOf(self.searchStr.toLowerCase()) !== -1;
+          // return this product if the name contains the search string
         });
       })
       .catch(function(error){
