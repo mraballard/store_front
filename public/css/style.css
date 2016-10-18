@@ -1,0 +1,18 @@
+h1#index-logo {
+  margin-top: 15px;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-content: space-between;
+}
+nav a {
+  margin: 10px;
+}
+/*div.container {
+  border: 2px solid black;
+}*/
+main {
+    padding: 8vmin;
+}

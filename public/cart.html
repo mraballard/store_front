@@ -1,0 +1,17 @@
+<h3> CART </h3>
+
+<div id="cart">
+  <h4>Total ({{storeCtrl.cart.length}} {{storeCtrl.cart.length === 1? "item" : "items"}}):
+    {{storeCtrl.getCartValue() | currency}}</h4>
+
+  <div ng-repeat="orderItem in storeCtrl.cart">
+    <h5>{{orderItem.product.name}}</h5>
+    <p>Price: {{orderItem.product.price | currency}}</p>
+    <p>Quantity: {{orderItem.quantity}}</p>
+  </div>
+
+
+  <form ng-submit="storeCtrl.placeOrder()" ng-show="storeCtrl.cart.length">
+    <input type="submit" value="Place Order">
+  </form>
+</div>

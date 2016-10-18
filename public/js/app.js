@@ -23,7 +23,7 @@
     })
     .state('signup',{
       url: '/signup',
-      templateUrl: 'singup.html',
+      templateUrl: 'signup.html',
       controller: 'AuthController',
       controllerAs: 'authCtrl'
     })
