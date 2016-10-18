@@ -2,8 +2,12 @@ h1#index-logo {
   margin-top: 15px;
 }
 
-a.index-nav {
+nav {
+  display: flex;
   float: right;
-  margin: 15px;
-  color: blue;
+  justify-content: flex-end;
+  align-content: space-between;
+}
+nav a {
+  margin: 10px;
 }
