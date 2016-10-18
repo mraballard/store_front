@@ -13,7 +13,15 @@
     <title>The Store Front | App</title>
   </head>
   <body>
-    howdy!
-    test: 1+1 =  {{1+1}}
+    <div class="container" ng-controller="">
+      <header>
+        <h1>The Store Front</h1>
+        <nav class="index-nav">
+          <a ui-sref-active="active" ui-sref="login">Login</a>
+          <a ui-sref-active="active" ui-sref="signup">Sign Up</a>
+        </nav>
+      </header>
+      <main ui-view></main>
+    </div>
   </body>
 </html>
