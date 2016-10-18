@@ -28,7 +28,11 @@
             console.log(error);
           })
           .then(function(response){
+            console.log('adding to cart');
             cart.items.push({product: response.data, quantity: Number(quantity)})
+            console.log(cart.items);
+            console.log('cart length: '+cart.items.length);
+
           });
         } else {
           cart.items[indexOfProductInCart].quantity += Number(quantity);

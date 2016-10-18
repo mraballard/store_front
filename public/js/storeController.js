@@ -36,8 +36,8 @@
         });
       } else {
         this.cartHasItems = true;
-        $cart.add(id,quantity);
         this.quantityAtShopIndex[index] = 0;
+        $cart.add(id,quantity);
       }
     };
     this.updateCart = function(newQuantity, index){
