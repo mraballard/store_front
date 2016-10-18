@@ -1,6 +1,6 @@
 (function(){
 
-  angular.module('StoreFront')
+  angular.module('storeFront')
   .controller('StoreController', StoreController);
 
   StoreController.$inject = ['$http','$state'];
@@ -8,7 +8,8 @@
   function StoreController($http, $state) {
     this.all = [];
     var self = this;
-    this.searchStr = '';
+    this.searchStr = ''; // Initialize search value to '' to return all products in database
+
     // GET PRODUCTS FROM DATABASE
     this.getProducts = function(searchStr) {
       $http.get('')
@@ -24,6 +25,8 @@
         console.log(error);
       });
     }
+
+
   }
 
 })()

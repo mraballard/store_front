@@ -1,6 +1,5 @@
-(funciton(){
-
-  var app = angular.module('StoreFront', ['ui.router'])
+(function(){
+  angular.module('storeFront', ['ui.router'])
   .config(MainRouter);
 
   function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
@@ -12,7 +11,9 @@
       url: '/index',
       params: {
         user: null
-      }
+      },
+      controller: 'AuthController',
+      controllerAs: 'authCtrl'
     })
     .state('login',{
       url: '/login',
@@ -40,22 +41,22 @@
     })
     .state('orders',{
       url: '/orders',
-      templateUrl: 'orders.html',
-      controller: 'StoreController',
-      controllerAs: 'storeCtrl'
+      templateUrl: 'profile.html',
+      controller: 'UserController',
+      controllerAs: 'userCtrl'
     })
     .state('profile',{
       url: '/profile',
       templateUrl: 'orders.html',
-      controller: 'StoreController',
-      controllerAs: 'storeCtrl'
+      controller: 'UserController',
+      controllerAs: 'userCtrl'
     })
     .state('edit',{
       url: '/profile/edit',
       templateUrl: 'orders.html',
       controller: 'StoreController',
       controllerAs: 'storeCtrl'
-    })
+    });
 
     $locationProvider.html5Mode({
       enabled: true,
