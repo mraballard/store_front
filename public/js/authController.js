@@ -6,10 +6,10 @@
   AuthController.$inject = ['$http','$state','$cart', '$user','$stateParams'];
 
   function AuthController($http, $state, $cart, $user, $stateParams) {
-    this.testMessage = 'Hello';
+    this.user = null;
     var self = this;
-    this.click = function(){
-      console.log('click!');
+    if (this.user) {
+      this.getOrders();
     }
     this.signup = function(userPass) {
       console.log('signup function');

@@ -12,13 +12,6 @@
       console.log('$cart.items should be empty:');
       console.log(cart.items);
     }
-    cart.getTotal = function() {
-      var sum = 0;
-        this.cart.forEach(function(el){
-        sum += el.product.price * el.quantity;
-      });
-      return sum;
-    };
     cart.add = function(id,quantity) {
         var indexOfProductInCart = -1;
         if (cart.items.length > 0) { // if cart is not empty, check to see if product is already in cart

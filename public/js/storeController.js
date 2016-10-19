@@ -9,11 +9,19 @@
     this.all = [];
     var self = this;
     this.cartHasItems = false; // boolean for empty cart
+    this.cartTotal = 0;
     this.existingOrders = false;
     this.searchStr = ''; // Initialize search value to '' to return all products in database
     this.quantityAtShopIndex = {};  // used for reseting quantity in dropdown menu of product page
     this.quantityAtCartIndex = {};  // used for reseting quantity in dropdown menu of cart page
-
+    this.cart = [];
+    this.getCartTotal = function() {
+      var sum = 0;
+        this.cart.forEach(function(el){
+        sum += el.product.price * el.quantity;
+      });
+      return sum;
+    }
     // GET PRODUCTS FROM DATABASE
     this.getProducts = function(searchStr) {
       $http.get('/api/products/')
@@ -32,7 +40,7 @@
         console.log(error);
       });
     };
-    this.addToCart = function(id,quantity,index) {
+    this.addToCart = function(id, quantity, index){
       if (!quantity) {
         $state.go('home', {url: '/home'})
         .catch(function(error){
@@ -40,21 +48,33 @@
         });
       } else {
         this.cartHasItems = true;
-        this.quantityAtShopIndex[index] = 0;
-        $cart.add(id,quantity);
-        this.cart = $cart.items;
-        console.log('storeCtrl cart:');
-        console.log(this.cart);
+        var indexOfProductInCart = -1;
+        if (self.cart.length > 0) { // if cart is not empty, check to see if product is already in cart
+          indexOfProductInCart = self.cart.findIndex(function(el,i) {
+            return el.product._id === id;
+          });
+        }
+        if (indexOfProductInCart === -1) {
+          $http.get(`/api/products/${id}`)
+          .catch(function(error){
+            console.log(error);
+          })
+          .then(function(response){
+            self.cart.push({product: response.data, quantity: Number(quantity)})
+            console.log(self.cart);
+          });
+        } else {
+          self.cart[indexOfProductInCart].quantity += Number(quantity);
+        }
+        self.quantityAtShopIndex[index] = 0;
       }
     };
-    this.updateCart = function(newQuantity, index){
-      $cart.items[index].quantity = newQuantity;
+    this.updateCart = function(newQuantity,index) {
+      self.cart[index].quantity = newQuantity;
       self.quantityAtCartIndex[index] = 0;
-      self.cart = $cart.items;
-    };
-    this.deleteFromCart = function(index) {
-      $cart.items.splice(index,1);
-      self.cart = $cart.items;
+    }
+    this.deleteFromCart = function(index){
+      self.cart.splice(index,1);
     };
     this.placeOrder = function(order,user){
       console.log('this is the order');
@@ -62,28 +82,22 @@
       this.existingOrders = true;
       $http.post(`/api/orders`, {order: order, user: user})
       .then(function(response){
-        console.log('this is the response data:');
-        console.log(response.data);
-        return self.getOrders();
-      })
-      .then(function(){
-        $cart.emptyCart();
-        self.cart = $cart.items;
+        self.cart = [];
         $state.go('orders', {url: '/orders'});
       });
     }
-    this.getOrders = function() {
-      $http.get(`/api/orders`)
-      .catch(function(error){
-        console.log(error);
-        $state.go('index',{url: '/index'});
-      })
-      .then(function(response){
-        console.log('this is response from getting orders:');
-        console.log(response.data);
-        self.orders = response.data;
-      });
-    }
+    // this.getOrders = function() {
+    //   $http.get(`/api/orders`)
+    //   .catch(function(error){
+    //     console.log(error);
+    //     $state.go('index',{url: '/index'});
+    //   })
+    //   .then(function(response){
+    //     console.log('this is response from getting orders:');
+    //     console.log(response.data);
+    //     self.orders = response.data;
+    //   });
+    // }
     this.getProducts();
   }
 
