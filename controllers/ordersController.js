@@ -26,8 +26,11 @@ router.get('/',authorize,function(req, res){
 });
 
 router.post('/', function(req, res){
-  console.log("req.body", req.body.order);
-  Order.create(req.body.order)
+  console.log("req.body", req.body);
+  Order.create({
+    items: req.body.order,
+    user: req.body.user
+  })
   .then(function(order){
     console.log(order);
     res.json(order);
@@ -38,8 +41,8 @@ router.post('/', function(req, res){
   })
 });
 
-router.get('/:id', function(req, res){
-  Order.findById(req.params.id).exec()
+router.get('/:userId', function(req, res){
+  Order.find({"user._id": req.params.userId}).exec()
   .then(function(order){
     console.log(order);
     res.json(order);

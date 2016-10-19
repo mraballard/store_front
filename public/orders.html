@@ -1,8 +1,7 @@
 <h3> ORDERS </h3>
-
 <div id="cart">
-  <details ng-repeat="order in storeCtrl.pastOrders">
-    <summary>Order {{order.id}} : {{order.createdAt}}</summary>
+  <details ng-repeat="order in authCtrl.orders">
+    <summary>Order {{order._id}} : {{order.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}</summary>
     <p>{{order.total | currency}}</p>
     <ul>
       <li ng-repeat="item in order.items">
