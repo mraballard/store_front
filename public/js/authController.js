@@ -35,6 +35,7 @@
     } // closes signup function
 
     this.login = function(userPass) {
+      this.testMessage = 'Gbye';
       $http.post('/api/users/login',
       {
         username: userPass.username,
@@ -44,7 +45,7 @@
         // console.log(error);
       })
       .then(function(response){
-        // console.log(response);
+        console.log(response);
         self.user = response.data.user;
         $state.go('home', {url: '/home', user: response.data.user});
       })

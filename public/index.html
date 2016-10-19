@@ -13,7 +13,7 @@
     <title>The Store Front | App</title>
   </head>
   <body ng-controller="AuthController as authCtrl">
-    {{authCtrl.user}}
+    {{authCtrl.testMessage}}
     <div class="container">
       <header>
         <h1 id="index-logo"><a ui-sref="index">The Store Front</a></h1>
@@ -37,7 +37,8 @@
         </div>
 
       </header>
-      <main ui-view></main>
+      <main ui-view ng-controller="StoreController as storeCtrl">
+      </main>
     </div>
   </body>
 </html>
