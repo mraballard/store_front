@@ -18,7 +18,7 @@
     cart.add = function(id,quantity) {
         var indexOfProductInCart = -1;
         if (cart.items.length > 0) { // if cart is not empty, check to see if product is already in cart
-          indexOfProductInCart = cart.items.findIndex(function(el,i) {
+          indexOfProductInCart = cart.items.findIndex(function(el) {
             return el.product._id === id;
           });
         }
@@ -32,7 +32,6 @@
             cart.items.push({product: response.data, quantity: Number(quantity)})
             console.log(cart.items);
             console.log('cart length: '+cart.items.length);
-
           });
         } else {
           cart.items[indexOfProductInCart].quantity += Number(quantity);

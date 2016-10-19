@@ -2,8 +2,8 @@
 <h3> Shop! </h3>
 <aside class="search-bar">
 <br>
-<form action="index.html" method="post">
-  <input class="textbox-border" type="textbox" name="search" placeholder="Search">
+<form>
+  <input ng-model="storeCtrl.searchStr" ng-change="storeCtrl.getProducts(storeCtrl.searchStr)" class="textbox-border" type="textbox" name="search" placeholder="Search">
   <button type="submit" name="search-submit">Go</button>
 </form>
 </aside>
