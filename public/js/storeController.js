@@ -19,7 +19,7 @@
         console.log(error);
       })
       .then(function(response){
-        console.log(response);
+        console.log('getProducts function' +response);
         self.all = response.data.products.filter(
           function(el)  {
           return el.name.toLowerCase().indexOf(self.searchStr.toLowerCase()) !== -1;
@@ -40,6 +40,9 @@
         this.cartHasItems = true;
         this.quantityAtShopIndex[index] = 0;
         $cart.add(id,quantity);
+        this.cart = $cart.items;
+        console.log('storeCtrl cart:');
+        console.log(this.cart);
       }
     };
     this.updateCart = function(newQuantity, index){

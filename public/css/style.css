@@ -30,7 +30,7 @@ main {
   width: 30%;
 }
 .search-bar h3 {
-  float: left;
+  clear: both;
 }
 form {
   display: inline;
@@ -58,10 +58,17 @@ div#products {
   clear: both;
 
 }
+
+.sprite-div {
+  background-image: url('../public/images/Shopping-Cart-Icons.jpg');
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 200px;
+}
+
 #cart-sprite {
-background-image: url("/images/Shopping-Cart-Icons.jpg");
-background-repeat: no-repeat;
-height: 60px;
-width: 60px;
-position: 0 -26;
+  position: relative;
+
 }
