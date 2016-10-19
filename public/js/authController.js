@@ -61,7 +61,7 @@
         console.log(response);
       })
       .then(function(){
-        self.user = null;
+        self.user = null; // ng-show="authCtrl.user" === false
         $state.go('index', {url: '/index'});
       })
       .catch(function(error){

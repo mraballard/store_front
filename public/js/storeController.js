@@ -40,6 +40,7 @@
         this.cartHasItems = true;
         this.quantityAtShopIndex[index] = 0;
         $cart.add(id,quantity);
+        this.cart = $cart;
       }
     };
     this.updateCart = function(newQuantity, index){
