@@ -24,7 +24,7 @@
             <a ui-sref-active="active" ui-sref="home">Products</a>
             <a ui-sref-active="active" ui-sref="orders">Orders</a>
             <a ui-sref-active="active" ui-sref="cart">Cart</a>
-            <a ui-sref-active="active" ui-sref="logout">Logout</a>
+            <a ng-click="authCtrl.logout()" ui-sref-active="active">Logout</a>
           </nav>
         </div>
         <div class="" ng-hide="authCtrl.user">
