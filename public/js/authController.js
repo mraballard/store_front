@@ -33,28 +33,21 @@
         self.isUserLoggedIn = true;
       });
     } // closes signup function
-
     this.login = function(userPass) {
-      this.testMessage = 'Gbye';
       $http.post('/api/users/login',
       {
         username: userPass.username,
         password: userPass.password
       })
       .catch(function(error){
-        // console.log(error);
+        console.log(error);
       })
       .then(function(response){
-        // console.log(response);
-      //   $user.getUser();
-      //   console.log($user);
-      //   $state.go('home', {url: '/home'});
         console.log(response);
         self.user = response.data.user;
         $state.go('home', {url: '/home', user: response.data.user});
       })
     } // closes login function
-
     this.logout = function() {
       $http.delete('/api/users/logout')
       .then(function(response){
@@ -66,6 +59,22 @@
       })
       .catch(function(error){
         console.log(error);
+      });
+    }
+
+    this.getOrders = function() {
+      $http.get(`/api/orders/${self.user._id}`)
+      .catch(function(error){
+        console.log(error);
+      })
+      .then(function(response){
+        console.log('this is response from getting orders:');
+        console.log(response.data);
+        return self.orders = response.data;
+      })
+      .then(function(orders){
+        console.log(orders);
+        $state.go('orders',{url: '/orders'});
       });
     }
   }  // closes AuthController function
