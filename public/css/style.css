@@ -24,23 +24,24 @@ main {
 }
 /*home.html*/
 .search-bar {
-  float: right;
   display: inline;
   clear: both;
   width: 30%;
+  margin-bottom: 10px;
 }
 .search-bar h3 {
   clear: both;
 }
+
 form {
   display: inline;
 }
 aside {
-  display: inline;
+  display: inline-block;
 }
 input.textbox-border {
   border: 1px solid grey;
-  position: x(4)y(-5);
+
 }
 button {
   background: #999999;
@@ -54,8 +55,9 @@ button {
       position: absolute;
     }
 }
-div#products {
+#products {
   clear: both;
+  margin-top: 30px;
 
 }
 
