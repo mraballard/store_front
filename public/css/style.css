@@ -24,23 +24,24 @@ main {
 }
 /*home.html*/
 .search-bar {
-  float: right;
   display: inline;
   clear: both;
-  width: 30%;
+  /*width: 30%;*/
+  margin-bottom: 10px;
 }
 .search-bar h3 {
   clear: both;
 }
+
 form {
   display: inline;
 }
 aside {
-  display: inline;
+  display: inline-block;
 }
 input.textbox-border {
   border: 1px solid grey;
-  position: x(4)y(-5);
+
 }
 button {
   background: #999999;
@@ -48,27 +49,20 @@ button {
   border: 1px solid grey;
 }
 
-@media only screen and (max-width: 330px) {
+@media only screen and (max-width: 400px) {
     .search-bar {
-      display: block;
-      position: absolute;
+      width: 100%;
+    }
+    input.textbox-border {
+      width: 100%;
     }
 }
-div#products {
-  clear: both;
-
-}
-
-.sprite-div {
-  background-image: url('../public/images/Shopping-Cart-Icons.jpg');
-  display: inline-block;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  margin: 200px;
-}
-
-#cart-sprite {
-  position: relative;
-
+#products {
+  margin-top: 30px;
+  padding: 18px;
+  border: 2px solid #999999;
+  float: left;
+  width: 250px;
+  height: 250px;
+  margin: 5px;
 }

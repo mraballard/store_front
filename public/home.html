@@ -1,15 +1,14 @@
 
 <h3> Shop! </h3>
-<aside class="search-bar">
-<br>
+<div class="search-bar">
 <form>
   <input ng-model="storeCtrl.searchStr" ng-change="storeCtrl.getProducts(storeCtrl.searchStr)" class="textbox-border" type="textbox" name="search" placeholder="Search">
-  <button type="submit" name="search-submit">Go</button>
+  <hr>
 </form>
-</aside>
-<section id="products">
+</div>
+<section>
   <div ng-repeat="product in storeCtrl.all">
-    <div>
+    <div id="products">
       <h2>{{product.name}}</h2>
       <h5>{{product.price | currency}}</h5>
       <p>{{product.description}}</p>
@@ -23,6 +22,5 @@
         </form>
       </div>
     </div>
-    <hr>
   </div>
 </section>
