@@ -6,9 +6,9 @@
   <hr>
 </form>
 </div>
-<section id="products">
+<section>
   <div ng-repeat="product in storeCtrl.all">
-    <div>
+    <div id="products">
       <h2>{{product.name}}</h2>
       <h5>{{product.price | currency}}</h5>
       <p>{{product.description}}</p>
@@ -22,6 +22,5 @@
         </form>
       </div>
     </div>
-    <hr>
   </div>
 </section>
