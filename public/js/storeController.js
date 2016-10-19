@@ -40,7 +40,9 @@
         this.cartHasItems = true;
         this.quantityAtShopIndex[index] = 0;
         $cart.add(id,quantity);
-        this.cart = $cart;
+        this.cart = $cart.items;
+        console.log('storeCtrl cart:');
+        console.log(this.cart);
       }
     };
     this.updateCart = function(newQuantity, index){
