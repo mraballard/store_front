@@ -40,14 +40,19 @@
         this.cartHasItems = true;
         this.quantityAtShopIndex[index] = 0;
         $cart.add(id,quantity);
+        this.cart = $cart.items;
+        console.log('storeCtrl cart:');
+        console.log(this.cart);
       }
     };
     this.updateCart = function(newQuantity, index){
-      $cart[index].quantity = newQuantity;
+      $cart.items[index].quantity = newQuantity;
       self.quantityAtCartIndex[index] = 0;
+      self.cart = $cart.items;
     };
     this.deleteFromCart = function(index) {
       $cart.items.splice(index,1);
+      self.cart = $cart.items;
     };
     this.getProducts();
   }

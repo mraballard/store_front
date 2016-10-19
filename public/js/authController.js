@@ -7,7 +7,6 @@
 
   function AuthController($http, $state, $cart, $user, $stateParams) {
     this.testMessage = 'Hello';
-
     var self = this;
     this.click = function(){
       console.log('click!');
@@ -46,18 +45,29 @@
         // console.log(error);
       })
       .then(function(response){
-
         // console.log(response);
       //   $user.getUser();
       //   console.log($user);
       //   $state.go('home', {url: '/home'});
-
         console.log(response);
         self.user = response.data.user;
         $state.go('home', {url: '/home', user: response.data.user});
       })
-
     } // closes login function
+
+    this.logout = function() {
+      $http.delete('/api/users/logout')
+      .then(function(response){
+        console.log(response);
+      })
+      .then(function(){
+        self.user = null; // ng-show="authCtrl.user" === false
+        $state.go('index', {url: '/index'});
+      })
+      .catch(function(error){
+        console.log(error);
+      });
+    }
   }  // closes AuthController function
 
 })();
