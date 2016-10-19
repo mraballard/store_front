@@ -39,13 +39,13 @@
     })
     .state('orders',{
       url: '/orders',
-      templateUrl: 'profile.html',
+      templateUrl: 'orders.html',
       //controller: 'UserController',
       //controllerAs: 'userCtrl'
     })
     .state('profile',{
       url: '/profile',
-      templateUrl: 'orders.html',
+      templateUrl: 'profile.html',
       // controller: 'UserController',
       // controllerAs: 'userCtrl'
     })

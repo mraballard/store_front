@@ -7,7 +7,11 @@
 
   function Cart($http){
     var cart = {};
-    cart.items = [];
+    cart.emptyCart = function(){
+      cart.items = [];
+      console.log('$cart.items should be empty:');
+      console.log(cart.items);
+    }
     cart.getTotal = function() {
       var sum = 0;
         this.cart.forEach(function(el){
@@ -37,7 +41,7 @@
           cart.items[indexOfProductInCart].quantity += Number(quantity);
         }
     }
-
+    cart.emptyCart();
     return cart;
   }
 })()

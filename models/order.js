@@ -1,12 +1,15 @@
 var mongoose = require('mongoose');
 
 var OrderItemSchema = require('./orderItem').schema;
+var UserSchema = require('./user').schema;
+
 OrderItemSchema.virtual('subtotal').get(function(){
   return this.quantity * this.product.price;
 })
 
 var OrderSchema = new mongoose.Schema({
   items: [OrderItemSchema],
+  user: UserSchema,
   createdAt: Date,
   updatedAt: Date
 },{

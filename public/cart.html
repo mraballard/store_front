@@ -23,7 +23,7 @@
   </div>
 
 
-  <form ng-submit="storeCtrl.placeOrder()" ng-show="storeCtrl.cart.length">
+  <form ng-submit="storeCtrl.placeOrder(storeCtrl.cart,authCtrl.user)" ng-show="storeCtrl.cart.length">
     <input type="submit" value="Place Order">
   </form>
 </div>

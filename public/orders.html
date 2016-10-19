@@ -1,12 +1,12 @@
 <h3> ORDERS </h3>
-
+{{storeCtrl.orders}}
 <div id="cart">
-  <details ng-repeat="order in storeCtrl.pastOrders">
-    <summary>Order {{order.id}} : {{order.createdAt}}</summary>
+  <details ng-repeat="order in storeCtrl.orders">
+    <summary>Order {{order._id}} : {{order.createdAt}}</summary>
     <p>{{order.total | currency}}</p>
     <ul>
       <li ng-repeat="item in order.items">
-        {{item.quantity}} {{item.product.name}} @ {{item.product.price | currency}}
+        {{item.product.quantity}} {{item.product.name}} @ {{item.product.price | currency}}
       </li>
     </ul>
   </details>

@@ -8,6 +8,8 @@
   function StoreController($http, $state, $cart) {
     this.all = [];
     var self = this;
+    this.cartHasItems = false; // boolean for empty cart
+    this.existingOrders = false;
     this.searchStr = ''; // Initialize search value to '' to return all products in database
     this.quantityAtShopIndex = {};  // used for reseting quantity in dropdown menu of product page
     this.quantityAtCartIndex = {};  // used for reseting quantity in dropdown menu of cart page
@@ -54,6 +56,34 @@
       $cart.items.splice(index,1);
       self.cart = $cart.items;
     };
+    this.placeOrder = function(order,user){
+      console.log('this is the order');
+      console.log(order);
+      this.existingOrders = true;
+      $http.post(`/api/orders`, {order: order, user: user})
+      .then(function(response){
+        console.log('this is the response data:');
+        console.log(response.data);
+        return self.getOrders();
+      })
+      .then(function(){
+        $cart.emptyCart();
+        self.cart = $cart.items;
+        $state.go('orders', {url: '/orders'});
+      });
+    }
+    this.getOrders = function() {
+      $http.get(`/api/orders`)
+      .catch(function(error){
+        console.log(error);
+        $state.go('index',{url: '/index'});
+      })
+      .then(function(response){
+        console.log('this is response from getting orders:');
+        console.log(response.data);
+        self.orders = response.data;
+      });
+    }
     this.getProducts();
   }
 

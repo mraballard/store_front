@@ -21,7 +21,12 @@
         console.log(error);
       })
     }
+    user.getOrders = function() {
+      $http.get('/api/orders')
+    }
+
     return user;
+
   }
 
 })()
