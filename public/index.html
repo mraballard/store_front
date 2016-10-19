@@ -9,18 +9,17 @@
     <script src="js/app.js"></script>
     <script src="js/storeController.js"></script>
     <script src="js/authController.js"></script>
-    <script src="js/userController.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/userService.js"></script>
 
     <title>The Store Front | App</title>
   </head>
-  <body ng-controller="indexController as indexCtrl">
-    {{indexCtrl.loggedIn}}
+  <body ng-controller="AuthController as authCtrl">
+    {{authCtrl.testMessage}}
     <div class="container">
       <header>
         <h1 id="index-logo"><a ui-sref="index">The Store Front</a></h1>
-        <div class="" ng-show="indexCtrl.loggedIn">
+        <div class="" ng-show="authCtrl.user">
           <nav class="index-nav">
             <a ui-sref-active="active" ui-sref="home">Products</a>
             <a ui-sref-active="active" ui-sref="orders">Orders</a>
@@ -28,19 +27,20 @@
             <a ui-sref-active="active" ui-sref="logout">Logout</a>
           </nav>
         </div>
-        <div class="" ng-hide="indexCtrl.loggedIn">
+        <div class="" ng-hide="authCtrl.user">
           <nav class="index-nav">
             <a ui-sref-active="active" ui-sref="login">Login</a>
             <a ui-sref-active="active" ui-sref="signup">Sign Up</a>
             <a ui-sref-active="active" ui-sref="home">Products</a>
           </nav>
         </div>
-        <div class="" ng-show="indexCtrl.user">
-          <h3>Welcome {{indexCtrl.user.username}}</h3>
+        <div class="" ng-show="authCtrl.user">
+          <h3>Welcome {{authCtrl.user.username}}</h3>
         </div>
 
       </header>
-      <main ui-view></main>
+      <main ui-view ng-controller="StoreController as storeCtrl">
+      </main>
     </div>
   </body>
 </html>

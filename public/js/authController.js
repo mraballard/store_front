@@ -36,6 +36,7 @@
     } // closes signup function
 
     this.login = function(userPass) {
+      this.testMessage = 'Gbye';
       $http.post('/api/users/login',
       {
         username: userPass.username,
@@ -45,11 +46,16 @@
         // console.log(error);
       })
       .then(function(response){
+
         // console.log(response);
-        $user.getUser();
-        console.log($user);
-        $state.go('home', {url: '/home'});
-      });
+      //   $user.getUser();
+      //   console.log($user);
+      //   $state.go('home', {url: '/home'});
+
+        console.log(response);
+        self.user = response.data.user;
+        $state.go('home', {url: '/home', user: response.data.user});
+      })
 
     } // closes login function
   }  // closes AuthController function
