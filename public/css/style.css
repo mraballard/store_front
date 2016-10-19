@@ -1,7 +1,8 @@
+/*ALL*/
 a:hover {
   text-decoration: none;
 }
-
+/*index*/
 h1#index-logo {
   margin-top: 15px;
 }
@@ -17,6 +18,57 @@ nav a {
 /*div.container {
   border: 2px solid black;
 }*/
+
 main {
     padding: 8vmin;
+}
+/*home.html*/
+.search-bar {
+  float: right;
+  display: inline;
+  clear: both;
+  width: 30%;
+}
+.search-bar h3 {
+  clear: both;
+}
+form {
+  display: inline;
+}
+aside {
+  display: inline;
+}
+input.textbox-border {
+  border: 1px solid grey;
+  position: x(4)y(-5);
+}
+button {
+  background: #999999;
+  color: white;
+  border: 1px solid grey;
+}
+
+@media only screen and (max-width: 330px) {
+    .search-bar {
+      display: block;
+      position: absolute;
+    }
+}
+div#products {
+  clear: both;
+
+}
+
+.sprite-div {
+  background-image: url('../public/images/Shopping-Cart-Icons.jpg');
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 200px;
+}
+
+#cart-sprite {
+  position: relative;
+
 }

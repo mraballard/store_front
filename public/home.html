@@ -1,11 +1,18 @@
+
 <h3> Shop! </h3>
+<aside class="search-bar">
+<br>
+<form action="index.html" method="post">
+  <input class="textbox-border" type="textbox" name="search" placeholder="Search">
+  <button type="submit" name="search-submit">Go</button>
+</form>
+</aside>
 <section id="products">
   <div ng-repeat="product in storeCtrl.all">
     <div>
       <h2>{{product.name}}</h2>
       <h5>{{product.price | currency}}</h5>
       <p>{{product.description}}</p>
-
       <div ng-if="authCtrl.user">
         <form ng-submit="storeCtrl.addToCart(product._id, storeCtrl.quantityAtShopIndex[$index],$index)">
           <label for="quantity">Quantity</label>
@@ -15,8 +22,6 @@
           <input type='submit' value="Add to Cart">
         </form>
       </div>
-
-
     </div>
     <hr>
   </div>
