@@ -3,10 +3,11 @@
   angular.module('StoreFront')
   .controller('AuthController', AuthController);
 
-  AuthController.$inject = ['$http','$state','$cart','$stateParams'];
+  AuthController.$inject = ['$http','$state','$cart', '$user','$stateParams'];
 
-  function AuthController($http, $state, $cart, $stateParams) {
+  function AuthController($http, $state, $cart, $user, $stateParams) {
     this.testMessage = 'Hello';
+
     var self = this;
     this.click = function(){
       console.log('click!');
@@ -45,9 +46,10 @@
       })
       .then(function(response){
         // console.log(response);
-        self.user = response.data.user;
-        $state.go('home', {url: '/home', user: response.data.user});
-      })
+        $user.getUser();
+        console.log($user);
+        $state.go('home', {url: '/home'});
+      });
 
     } // closes login function
   }  // closes AuthController function
