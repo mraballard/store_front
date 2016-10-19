@@ -46,11 +46,13 @@
       }
     };
     this.updateCart = function(newQuantity, index){
-      $cart[index].quantity = newQuantity;
+      $cart.items[index].quantity = newQuantity;
       self.quantityAtCartIndex[index] = 0;
+      self.cart = $cart.items;
     };
     this.deleteFromCart = function(index) {
       $cart.items.splice(index,1);
+      self.cart = $cart.items;
     };
     this.getProducts();
   }
