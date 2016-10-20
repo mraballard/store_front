@@ -11,7 +11,7 @@ var Order = require('../models/order.js');
 
 Product.remove({})
 .then(function(){
-  return csvdata.load('example_data.csv');
+  return csvdata.load('./scripts/example_data.csv');
 })
 .then(function(products){
   var productPromisesArray = products.map(function(product){
