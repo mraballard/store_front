@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://getbootstrap.com.vn/examples/equal-height-columns/equal-height-columns.css" />
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
@@ -17,8 +18,9 @@
   </head>
   <body ng-controller="StoreController as storeCtrl">
     <div ng-controller="AuthController as authCtrl" class="container">
-      <header class="col-md-12">
-        <h1 id="index-logo"><a ui-sref="index">The Store Front</a></h1>
+      <header class="jumbotron col-md-12">
+        <h1 class="page-header">
+          <a ui-sref="index">The Store Front</a></h1>
         <div class="" ng-show="authCtrl.user">
           <nav class="index-nav">
             <a ui-sref="home">Products</a>

@@ -1,26 +1,32 @@
 
 <h3> Shop! </h3>
-<div class="search-bar col-md-6">
+<div class="search-bar">
 <form>
-  <input ng-model="storeCtrl.searchStr" ng-change="storeCtrl.getProducts(storeCtrl.searchStr)" class="textbox-border col-sm-10 col-sm-offset-2" type="textbox" name="search" placeholder="Search">
+  <input ng-model="storeCtrl.searchStr" ng-change="storeCtrl.getProducts(storeCtrl.searchStr)" class="textbox-border" type="textbox" name="search" placeholder="Search">
   <hr>
 </form>
 </div>
-<section class="col-sm-12">
+<section>
   <div ng-repeat="product in storeCtrl.all">
-    <div id="products" class="col-sm-2 col-sm-offset-2">
-      <h4>{{product.name}}</h4>
-      <h5>{{product.price | currency}}</h5>
-      <p>{{product.description}}</p>
-      <div ng-if="authCtrl.user">
-        <form ng-submit="storeCtrl.addToCart(product._id, storeCtrl.quantityAtShopIndex[$index],$index)">
-          <label for="quantity">Quantity</label>
-          <select name="quantity" ng-model="storeCtrl.quantityAtShopIndex[$index]">
-            <option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]" value="{{num}}">{{num}}</option>
-          </select>
-          <input type='submit' value="Add to Cart">
-        </form>
+    <div class=" row row-eq-height">
+      <div class="col-xs-6 col-md-6"> <img src="http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg" class="img-thumbnail">
       </div>
+
+      <div class="col-xs-6 col-md-6 red">
+          <h4>{{product.name}}</h4>
+          <h5>{{product.price | currency}}</h5>
+          <p>{{product.description}}</p></a>
+        <div ng-if="authCtrl.user">
+          <form ng-submit="storeCtrl.addToCart(product._id, storeCtrl.quantityAtShopIndex[$index],$index)">
+            <label for="quantity">Quantity</label>
+            <select name="quantity" ng-model="storeCtrl.quantityAtShopIndex[$index]">
+              <option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]" value="{{num}}">{{num}}</option>
+            </select>
+            <input type='submit' value="Add to Cart">
+          </form>
+        </div><!-- end ng-if -->
+      </div><!--end individual product div-->
+
     </div>
   </div>
 </section>
