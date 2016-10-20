@@ -1,15 +1,15 @@
 
 <h3> Shop! </h3>
-<div class="search-bar">
+<div class="search-bar col-md-6">
 <form>
-  <input ng-model="storeCtrl.searchStr" ng-change="storeCtrl.getProducts(storeCtrl.searchStr)" class="textbox-border" type="textbox" name="search" placeholder="Search">
+  <input ng-model="storeCtrl.searchStr" ng-change="storeCtrl.getProducts(storeCtrl.searchStr)" class="textbox-border col-sm-10 col-sm-offset-2" type="textbox" name="search" placeholder="Search">
   <hr>
 </form>
 </div>
-<section>
+<section class="col-sm-12">
   <div ng-repeat="product in storeCtrl.all">
-    <div id="products">
-      <h2>{{product.name}}</h2>
+    <div id="products" class="col-sm-2 col-sm-offset-2">
+      <h4>{{product.name}}</h4>
       <h5>{{product.price | currency}}</h5>
       <p>{{product.description}}</p>
       <div ng-if="authCtrl.user">
