@@ -14,14 +14,14 @@
 
     <title>The Store Front | App</title>
   </head>
-  <body ng-controller="AuthController as authCtrl">
-    <div class="container">
-      <header>
+  <body ng-controller="StoreController as storeCtrl">
+    <div ng-controller="AuthController as authCtrl" class="container">
+      <header >
         <h1 id="index-logo"><a ui-sref="index">The Store Front</a></h1>
         <div class="" ng-show="authCtrl.user">
           <nav class="index-nav">
             <a ui-sref="home">Products</a>
-            <a ng-click="authCtrl.getOrders()" ui-sref="orders">Orders</a>
+            <a ng-click="storeCtrl.getOrders()" ui-sref="orders">Orders</a>
             <a ui-sref="cart">Cart</a>
             <a ng-click="authCtrl.logout()">Logout</a>
           </nav>
@@ -38,7 +38,7 @@
           <h3>Welcome {{authCtrl.user.username}}</h3>
         </div>
       </header>
-      <main ui-view ng-controller="StoreController as storeCtrl">
+      <main ui-view>
       </main>
     </div>
   </body>
