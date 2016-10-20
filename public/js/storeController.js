@@ -8,12 +8,13 @@
   function StoreController($http, $state, $cart, $scope) {
     this.all = [];
     var self = this;
-    $scope.$on('UserLoggedIn', function(eventObj, data){
+    $scope.$on('UserLoggedIn', function(eventObj, data){  //saves user data on log in
       self.user = data;
       console.log('storeController user: '+self.user);
     });
-    $scope.$on('UserLoggedOut', function(eventObj){
+    $scope.$on('UserLoggedOut', function(eventObj){  //empties cart when user logs out
       self.cart = [];
+      self.user = null;
       console.log('cart emptied on logout');
     });
     this.cartHasItems = false; // boolean for empty cart
@@ -23,6 +24,7 @@
     this.quantityAtShopIndex = {};  // used for reseting quantity in dropdown menu of product page
     this.quantityAtCartIndex = {};  // used for reseting quantity in dropdown menu of cart page
     this.cart = [];
+
     this.getCartTotal = function() {
       var sum = 0;
         this.cart.forEach(function(el){
@@ -96,13 +98,15 @@
       });
     }
     this.getOrders = function() {
-      $http.get(`/api/orders/${self.user._id}`)
+      $http.get(`/api/orders/${self.user._id}`,{
+        user: self.user
+      })
       .catch(function(error){
         console.log(error);
       })
       .then(function(response){
         console.log('this is response from getting orders:');
-        console.log(response.data);
+        console.log(response);
         return self.orders = response.data;
       })
       .then(function(orders){
