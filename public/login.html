@@ -5,17 +5,25 @@
   <button class="btn btn-default" type="submit">Submit</button>
 </form>
 
+<<<<<<< HEAD
 <!-- <form class="form-horizontal">
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
       <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+=======
+<form class="form-horizontal" ng-submit="authCtrl.login(userPass)">
+  <div class="form-group">
+    <label for="username" class="col-sm-2 control-label"> Username</label>
+    <div class="col-sm-10">
+      <input ng-model="userPass.username" type="username" class="form-control" id="username" placeholder="username">
+>>>>>>> f1b5e2e6e120100e499dc71219d732c963086989
     </div>
   </div>
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+      <input ng-model="userPass.password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
     </div>
   </div>
   <div class="form-group">

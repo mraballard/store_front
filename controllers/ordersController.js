@@ -6,24 +6,24 @@ var Order = require('../models/order');
 
 //Authorize User before showing them products
 var authorize = function(req,res,next){
-  if(!req.user){
+  if(!req.user || req.user._id.toString() !== req.params.userId.toString()){
     res.json(401, 'unauthorized')
   }
   else{
     next()
   }
 }
-router.get('/',authorize,function(req, res){
-  Order.find({}).exec()
-  .then(function(orders){
-    console.log(orders);
-    res.json(orders);
-  })
-  .catch(function(err){
-    console.log(err);
-    res.status(500);
-  })
-});
+// router.get('/',authorize,function(req, res){
+//   Order.find({}).exec()
+//   .then(function(orders){
+//     console.log(orders);
+//     res.json(orders);
+//   })
+//   .catch(function(err){
+//     console.log(err);
+//     res.status(500);
+//   })
+// });
 
 router.post('/', function(req, res){
   console.log("req.body", req.body);
@@ -41,9 +41,10 @@ router.post('/', function(req, res){
   })
 });
 
-router.get('/:userId', function(req, res){
+router.get('/:userId', authorize, function(req, res){
   Order.find({"user._id": req.params.userId}).exec()
   .then(function(order){
+    console.log(req.params.userId);
     console.log(order);
     res.json(order);
   })
@@ -54,3 +55,6 @@ router.get('/:userId', function(req, res){
 });
 
 module.exports = router;
+
+
+"5807ca8daed53c5c9ce9ab4a"

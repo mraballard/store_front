@@ -53,6 +53,8 @@
         console.log(response);
       })
       .then(function(){
+        $scope.$emit('UserLoggedOut');
+        console.log('user logged out');
         self.user = null; // ng-show="authCtrl.user" === false
         $state.go('index', {url: '/index'});
       })
