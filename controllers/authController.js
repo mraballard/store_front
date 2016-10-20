@@ -92,7 +92,7 @@ router.put('/:id',function(req,res){
       })
     }
     else{
-      res.json(status: 406)
+      res.json({status: 406})
     }
   })
 });
