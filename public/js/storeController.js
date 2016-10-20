@@ -3,11 +3,15 @@
   angular.module('StoreFront')
   .controller('StoreController', StoreController);
 
-  StoreController.$inject = ['$http','$state','$cart'];
+  StoreController.$inject = ['$http','$state','$cart','$scope'];
 
-  function StoreController($http, $state, $cart) {
+  function StoreController($http, $state, $cart, $scope) {
     this.all = [];
     var self = this;
+    $scope.$on('UserLoggedIn', function(eventObj, data){
+      self.user = data;
+      console.log('storeController user: '+self.user);
+    });
     this.cartHasItems = false; // boolean for empty cart
     this.cartTotal = 0;
     this.existingOrders = false;
@@ -83,21 +87,25 @@
       $http.post(`/api/orders`, {order: order, user: user})
       .then(function(response){
         self.cart = [];
+        self.getOrders();
         $state.go('orders', {url: '/orders'});
       });
     }
-    // this.getOrders = function() {
-    //   $http.get(`/api/orders`)
-    //   .catch(function(error){
-    //     console.log(error);
-    //     $state.go('index',{url: '/index'});
-    //   })
-    //   .then(function(response){
-    //     console.log('this is response from getting orders:');
-    //     console.log(response.data);
-    //     self.orders = response.data;
-    //   });
-    // }
+    this.getOrders = function() {
+      $http.get(`/api/orders/${self.user._id}`)
+      .catch(function(error){
+        console.log(error);
+      })
+      .then(function(response){
+        console.log('this is response from getting orders:');
+        console.log(response.data);
+        return self.orders = response.data;
+      })
+      .then(function(orders){
+        console.log(orders);
+        $state.go('orders',{url: '/orders'});
+      });
+    }
     this.getProducts();
   }
 
