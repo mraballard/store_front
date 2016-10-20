@@ -12,6 +12,10 @@
       self.user = data;
       console.log('storeController user: '+self.user);
     });
+    $scope.$on('UserLoggedOut', function(eventObj){
+      self.cart = [];
+      console.log('cart emptied on logout');
+    });
     this.cartHasItems = false; // boolean for empty cart
     this.cartTotal = 0;
     this.existingOrders = false;
