@@ -1,22 +1,22 @@
-name,price,description,category
-Samsung 40 inch HDTV ,400.99,"All your favorite TV, movies, games and media content come to life in stunning Full HD 1080p with twice the resolution of standard HD TV. ",electronics
-Samsung 32 inch HDTV,179.99,"With Samsung Smart Hub on this TV, you can easily navigate to your favorite entertainment. Watch movies, TV shows, sports and news, access social media, play games, plus browse the Web.",electronics
-Apple Macbook Pro 12 inches,1599.99,MacBook delivers a full-size experience in the lightest and most compact Mac notebook ever. ,electronics
-Apple MacBook Air 13.3 inches,1049.99,"MacBook Air features up to 8GB of memory, a fifth-generation Intel Core processor, Thunderbolt 2, great built-in apps, and all-day battery life.",electronics
-Apple iPad Pro 12.9 inches,899.99,"Even with its 12.9-inch Retina display, the largest and most capable iPad ever is only 6.9mm thin and weighs just 1.57 pounds. ",electronics
-Apple iPhone 7,650.99,iPhone 7 dramatically improves the most important aspects of the iPhone experience. It introduces advanced new camera systems. The best performance and battery life ever in an iPhone.,electronics
-Whirlpool French Door Refrigerator,1699.99,There's a spot to keep all your groceries organized and accessible in this Whirlpool refrigerator. Temperature- and climate-controlled drawers keep foods fresh and ready to enjoy at any time.,appliances
-Frigidaire Side by Side Refrigerator,1299.99,Keep plenty of groceries chilled inside this Frigidaire Gallery refrigerator.,appliances
-Panasonic Stainless Steel Microwave,109.99,Cook or reheat meals with this Panasonic microwave oven. Inverter technology delivers heat consistently throughout food and beverages to minimize hot spots and burn risks.,appliances
-Breville Espresso Maker,599.99,"Need a pick-me up? Make espresso or an espresso-based beverage using this maker, which features a 15-bar Italian pump and 25-shot capacity for reliable performance. ",appliances
-Spalding NBA Super Flite Pro Basektball,39.99,Exclusive PU composite cover. Foam backed design for improved feel and grip ability. Official NBA size and weight. Designed for indoor/outdoor play.,sporting goods
-Adidas Finale Capitano Soccer Ball,20.99,Machine-stitched construction (nylon-wound carcass/TPU) ensures soft touch and high durability,sporting goods
-Wilson Air Attack Junior Size Football,19.99,"You'll be throwing like a pro in no time! Soft, ""Takified"" composite leather cover for excellent grip during gameplay. ",sporting goods
-Easton Mako Baseball Bat,200.99,The proven performer returns with a massive sweet spot and unmatched bat speed to enhance a player's performance at the plate.,sporting goods
-Wilson Baseball Glove,94.99,This glove has the perfect length and pocket for quick transfers. Pops of neon green ensure your defense won't be overlooked.,sporting goods
-Rawllings Baseball,3.99,Recommended for batting practice/cage use & game play,sporting goods
-Comfort Dog Harness & Traffic Loop,23.49,"Keep your dog safely attached to the leash with the KONG Adjustable Comfort Harness. The harness features a bright, solid color that is easy to see",pet supplies
-Chew Double Bone Dog Toy,12.49,"Fight boredom and get into action with action ridges & nubs, great for powerful chewers. ",pet supplies
-Breakaway Safe Cat Collar,17.99,"This collar features a safe buckle design that releases your cat when collar becomes caught, and may be personalized as well.",pet supplies
-Cat Playpen,159.99, Cat Playpen features swing out doors for easy access and provides plenty of space for a temporary retreat for your Cat. ,pet supplies
-Fish Aquarium Water Changer,44.99,Aquarium Water Changer puts water flow control at your fingertips to let you easily and efficiently change aquarium water and clean gravel.,pet supplies
+name,price,description,category,imageurl
+Samsung 40 inch HDTV ,400.99,"All your favorite TV, movies, games and media content come to life in stunning Full HD 1080p with twice the resolution of standard HD TV. ",electronics,http://imgur.com/W8ycE51
+Samsung 32 inch HDTV,179.99,"With Samsung Smart Hub on this TV, you can easily navigate to your favorite entertainment. Watch movies, TV shows, sports and news, access social media, play games, plus browse the Web.",electronics,http://imgur.com/W8ycE51
+Apple Macbook Pro 12 inches,1599.99,MacBook delivers a full-size experience in the lightest and most compact Mac notebook ever. ,electronics,http://imgur.com/JoVPGcx
+Apple MacBook Air 13.3 inches,1049.99,"MacBook Air features up to 8GB of memory, a fifth-generation Intel Core processor, Thunderbolt 2, great built-in apps, and all-day battery life.",electronics,http://imgur.com/HHfklPd
+Apple iPad Pro 12.9 inches,899.99,"Even with its 12.9-inch Retina display, the largest and most capable iPad ever is only 6.9mm thin and weighs just 1.57 pounds. ",electronics,http://imgur.com/nVo2mjj
+Apple iPhone 7,650.99,iPhone 7 dramatically improves the most important aspects of the iPhone experience. It introduces advanced new camera systems. The best performance and battery life ever in an iPhone.,electronics,http://imgur.com/nHovWV4
+Whirlpool French Door Refrigerator,1699.99,There's a spot to keep all your groceries organized and accessible in this Whirlpool refrigerator. Temperature- and climate-controlled drawers keep foods fresh and ready to enjoy at any time.,appliances,http://imgur.com/lvPWuD4
+Frigidaire Side by Side Refrigerator,1299.99,Keep plenty of groceries chilled inside this Frigidaire Gallery refrigerator.,appliances,http://imgur.com/1VCzUkl
+Panasonic Stainless Steel Microwave,109.99,Cook or reheat meals with this Panasonic microwave oven. Inverter technology delivers heat consistently throughout food and beverages to minimize hot spots and burn risks.,appliances,http://imgur.com/kPPvQqQ
+Breville Espresso Maker,599.99,"Need a pick-me up? Make espresso or an espresso-based beverage using this maker, which features a 15-bar Italian pump and 25-shot capacity for reliable performance. ",appliances,http://imgur.com/qRFF4tS
+Spalding NBA Super Flite Pro Basektball,39.99,Exclusive PU composite cover. Foam backed design for improved feel and grip ability. Official NBA size and weight. Designed for indoor/outdoor play.,sporting goods,http://imgur.com/fyBli4v
+Adidas Finale Capitano Soccer Ball,20.99,Machine-stitched construction (nylon-wound carcass/TPU) ensures soft touch and high durability,sporting goods,http://imgur.com/xSbXpxA
+Wilson Air Attack Junior Size Football,19.99,"You'll be throwing like a pro in no time! Soft, ""Takified"" composite leather cover for excellent grip during gameplay. ",sporting goods,http://imgur.com/2MMDuVp
+Easton Mako Baseball Bat,200.99,The proven performer returns with a massive sweet spot and unmatched bat speed to enhance a player's performance at the plate.,sporting goods,http://imgur.com/zsVhZNa
+Wilson Baseball Glove,94.99,This glove has the perfect length and pocket for quick transfers. Pops of neon green ensure your defense won't be overlooked.,sporting goods,http://imgur.com/1kIMeLs
+Rawllings Baseball,3.99,Recommended for batting practice/cage use & game play,sporting goods,http://imgur.com/3lIBzu0
+Comfort Dog Harness & Traffic Loop,23.49,"Keep your dog safely attached to the leash with the KONG Adjustable Comfort Harness. The harness features a bright, solid color that is easy to see",pet supplies,http://imgur.com/PbWeXdD
+Chew Double Bone Dog Toy,12.49,"Fight boredom and get into action with action ridges & nubs, great for powerful chewers. ",pet supplies,http://imgur.com/gVI3OdE
+Breakaway Safe Cat Collar,17.99,"This collar features a safe buckle design that releases your cat when collar becomes caught, and may be personalized as well.",pet supplies,http://imgur.com/PbWeXdD
+Cat Playpen,159.99, Cat Playpen features swing out doors for easy access and provides plenty of space for a temporary retreat for your Cat. ,pet supplies,http://imgur.com/8wqXcGL
+Fish Aquarium Water Changer,44.99,Aquarium Water Changer puts water flow control at your fingertips to let you easily and efficiently change aquarium water and clean gravel.,pet supplies,http://imgur.com/GVUb8Hc
