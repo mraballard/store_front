@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/storeapp');
+// create connection to store app db
+var mongoURI =  process.env.MONGODB_URI || 'mongodb://localhost/storeapp';
+mongoose.connect(mongoURI);
 var db = mongoose.connection;
 
 var csvdata = require('csvdata');
