@@ -62,6 +62,23 @@
         console.log(error);
       });
     }
+    this.passwordReset = function(password){
+      if (password.password !== password.passwordConfirm) {
+        $state.go('password', {url: '/password'});
+      } else {
+        $http.patch(`/api/users/${self.user._id}`,
+        {
+          password: password.password
+        })
+        .catch(function(error){
+          console.log(error);
+          $state.go('password', {url: '/password'});
+        })
+        .then(function(response){
+          console.log('password changed');
+        })
+      }
+    }
   }  // closes AuthController function
 
 })();
