@@ -3,14 +3,12 @@
   angular.module('StoreFront')
   .controller('AuthController', AuthController);
 
-  AuthController.$inject = ['$http','$state','$cart', '$user','$stateParams'];
+  AuthController.$inject = ['$http','$state','$cart', '$user','$stateParams','$scope'];
 
-  function AuthController($http, $state, $cart, $user, $stateParams) {
+  function AuthController($http, $state, $cart, $user, $stateParams, $scope) {
     this.user = null;
     var self = this;
-    if (this.user) {
-      this.getOrders();
-    }
+
     this.signup = function(userPass) {
       console.log('signup function');
       $http.post('/api/users/signup',
@@ -45,6 +43,7 @@
       .then(function(response){
         console.log(response);
         self.user = response.data.user;
+        $scope.$emit('UserLoggedIn', self.user);
         $state.go('home', {url: '/home', user: response.data.user});
       })
     } // closes login function
@@ -59,22 +58,6 @@
       })
       .catch(function(error){
         console.log(error);
-      });
-    }
-
-    this.getOrders = function() {
-      $http.get(`/api/orders/${self.user._id}`)
-      .catch(function(error){
-        console.log(error);
-      })
-      .then(function(response){
-        console.log('this is response from getting orders:');
-        console.log(response.data);
-        return self.orders = response.data;
-      })
-      .then(function(orders){
-        console.log(orders);
-        $state.go('orders',{url: '/orders'});
       });
     }
   }  // closes AuthController function
