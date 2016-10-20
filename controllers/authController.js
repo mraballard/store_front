@@ -75,4 +75,27 @@ router.get('/:id', authorize, function(req,res){
   });
 });
 
+// ===========================
+// USER UPDATE PASSWORD
+// ===========================
+router.put('/:id',function(req,res){
+  console.log('this is the password', req.body.password);
+  User.findById(req.params.id).exec()
+  .catch(function(err){
+    console.log(err);
+  })
+  .then(function(user){
+    if(req.body.password){
+      user.setPassword(req.body.password, function(){
+        user.save();
+        res.json({status:200, user: user })
+      })
+    }
+    else{
+      res.json(status: 406)
+    }
+  })
+});
+
+
 module.exports = router;
