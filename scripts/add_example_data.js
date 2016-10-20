@@ -6,7 +6,7 @@ var db = mongoose.connection;
 var csvdata = require('csvdata');
 
 var Product = require('../models/product.js');
-var OrderItem = require('../models/orderItem.js');
+var OrderItem = require('../models/orderitem.js');
 var Order = require('../models/order.js');
 
 Product.remove({})
