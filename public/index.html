@@ -27,9 +27,9 @@
 
         <div ng-show="authCtrl.user">
           <nav class="index-nav">
+            <a ui-sref="cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
             <a ui-sref="home">Products</a>
             <a ng-click="storeCtrl.getOrders()" ui-sref="orders">Orders</a>
-            <a ui-sref="cart">Cart</a>
             <a ui-sref="password">{{authCtrl.user.username}}'s password</a>
             <a ng-click="authCtrl.logout()">Logout</a>
           </nav>

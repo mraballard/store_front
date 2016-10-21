@@ -32,4 +32,6 @@ body {
 .jumbotron {
   background-color: rgba(1,119,26,0.5);
   background-image: url("http://www.intrawallpaper.com/static/images/abstract-mosaic-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
