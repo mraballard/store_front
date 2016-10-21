@@ -9,7 +9,7 @@
 <section>
   <div ng-repeat="product in storeCtrl.all">
     <div class=" row row-eq-height">
-      <div class="col-xs-6 col-md-6"> <img src="http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg" class="img-thumbnail">
+      <div class="col-xs-6 col-md-6"> <img ng-src= {{product.imageurl}}.jpg class="img-thumbnail">
       </div>
 
       <div class="col-xs-6 col-md-6">
