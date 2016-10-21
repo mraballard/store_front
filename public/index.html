@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" href="http://getbootstrap.com.vn/examples/equal-height-columns/equal-height-columns.css" /> -->
-    <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/angular-flash.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/angular-flash.js"></script>
     <script src="js/storeController.js"></script>
     <script src="js/authController.js"></script>
     <script src="js/cart.js"></script>
@@ -40,12 +42,17 @@
           </nav>
         </div>
       </header>
+
       <div class="col-sm-10 col-sm-offset-1 text-center">
         <a ng-click="storeCtrl.getProducts('electronics','category')" ui-sref-active="active" ui-sref="home">Electronics</a>
         <a ng-click="storeCtrl.getProducts('furniture','category')" ui-sref-active="active" ui-sref="home">Furniture</a>
         <a ng-click="storeCtrl.getProducts('sportingGoods','category')" ui-sref-active="active" ui-sref="home">Sporting Goods</a>
         <a ng-click="storeCtrl.getProducts('petSupplies','category')" ui-sref-active="active" ui-sref="home">Pet Supplies</a>
         <a ng-click="storeCtrl.getProducts('fitness','category')" ui-sref-active="active" ui-sref="home">Fitness</a>
+
+      <div class="section col-xs-8 col-sm-offset-2">
+        <flash-message class="alert-success" duration="2000" show-close="true" on-dismiss="myCallback(flash);"></flash-message>
+
       </div>
       <main ui-view>
       </main>

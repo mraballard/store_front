@@ -1,5 +1,5 @@
 (function(){
-  angular.module('StoreFront', ['ui.router'])
+  angular.module('StoreFront', ['ui.router','ngFlash'])
   .config(MainRouter);
 
   function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
