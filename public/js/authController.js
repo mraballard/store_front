@@ -3,12 +3,23 @@
   angular.module('StoreFront')
   .controller('AuthController', AuthController);
 
-  AuthController.$inject = ['$http','$state','$cart', '$user','$stateParams','$scope'];
+  AuthController.$inject = ['$http','$state','$cart', '$user','$stateParams','$scope', 'Flash'];
 
-  function AuthController($http, $state, $cart, $user, $stateParams, $scope) {
+  function AuthController($http, $state, $cart, $user, $stateParams, $scope, Flash) {
     this.user = null;
     var self = this;
-
+    this.loginSuccess = function() {
+      var message = 'You successfully logged in!';
+      Flash.create('login', message);
+    };
+    this.signupSuccess = function() {
+      var message = 'You successfully signed up. Please log in!';
+      Flash.create('signup', message);
+    };
+    this.logoutSuccess = function() {
+      var message = 'You successfully logged out!';
+      Flash.create('logout', message);
+    };
     this.signup = function(userPass) {
       console.log('signup function');
       $http.post('/api/users/signup',
@@ -28,6 +39,7 @@
         console.log(error);
       })
       .then(function(){
+        self.signupSuccess();
         self.isUserLoggedIn = true;
       });
     } // closes signup function
@@ -42,6 +54,7 @@
       })
       .then(function(response){
         console.log(response);
+        self.loginSuccess();
         self.user = response.data.user;
         $scope.$emit('UserLoggedIn', self.user);
         $state.go('home', {url: '/home', user: response.data.user});
@@ -53,6 +66,7 @@
         console.log(response);
       })
       .then(function(){
+        self.logoutSuccess();
         $scope.$emit('UserLoggedOut');
         console.log('user logged out');
         self.user = null; // ng-show="authCtrl.user" === false
