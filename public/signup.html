@@ -1,6 +1,29 @@
+<div class="container">
+  <form ng-submit="authCtrl.signup(userPass)">
+    <div class="form-group">
+    <div class="row">
+      <label for="username" class="col-sm-3 col-sm-offset-3">Username</label>
+    </div>
+    <div class="row bottom-margin">
+      <div class="col-sm-5 col-sm-offset-3">
+        <input ng-model="userPass.username" type="username" class="form-control" placeholder="username">
+      </div>
+    </div>
+    <div class="row">
+      <label for="password" class="col-sm-3 col-sm-offset-3">Password</label>
+    </div>
+    <div class="row bottom-margin">
+      <div class="col-sm-5 col-sm-offset-3">
+        <input ng-model="userPass.password" type="password" class="form-control" placeholder="password">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-xs-offset-5">
+          <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+        </div>
+      </div>
+    </div>
+  </form>
 
-<form ng-submit="authCtrl.signup(userPass)" class="login-form">
-  <input ng-model="userPass.username" type="textbox" name="username" placeholder="username">
-  <input ng-model="userPass.password" type="password" name="password" placeholder="password">
-  <button type="submit">Register</button>
-</form>
+</div>
