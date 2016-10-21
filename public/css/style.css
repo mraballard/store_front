@@ -35,3 +35,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.gliphicon-search {
+  background-color: red;
+}

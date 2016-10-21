@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="css/angular-flash.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
     <script src="js/app.js"></script>
@@ -27,11 +30,16 @@
 
         <div ng-show="authCtrl.user">
           <nav class="index-nav">
-            <a ui-sref="cart"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            <!-- <a ui-sref="cart"><span class="glyphicon glyphicon-shopping-cart"></span></a> -->
             <a ui-sref="home">Products</a>
             <a ng-click="storeCtrl.getOrders()" ui-sref="orders">Orders</a>
             <a ui-sref="password">{{authCtrl.user.username}}'s password</a>
             <a ng-click="authCtrl.logout()">Logout</a>
+            <div class="row">
+              <div class="col-sm-2">
+              <a ui-sref-active="active" ui-sref="cart"><span class="glyphicon glyphicon-shopping-cart col-sm-2"></span></a>
+              </div>
+            </div>
           </nav>
         </div>
         <div class="" ng-hide="authCtrl.user">
