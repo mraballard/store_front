@@ -26,6 +26,8 @@ body {
   font-weight: 700;
 }
 .jumbotron {
-  background-color: rgba(1,119,26,0.5);
-  background-image: url("http://www.intrawallpaper.com/static/images/abstract-mosaic-background.png")
+  background-image: url("http://www.intrawallpaper.com/static/images/abstract-mosaic-background.png");
+}
+.gliphicon-search {
+  background-color: red;
 }
