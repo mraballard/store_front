@@ -33,8 +33,9 @@
         $state.go('signup', {url: '/signup'});
       })
       .then(function(response){
-        console.log('this is the response '+response);
-        $state.go('home', {url: '/home'});
+        console.log('this is the response');
+        console.log(response);
+        $state.go('login', {url: '/login'});
       })
       .catch(function(error){
         console.log(error);
