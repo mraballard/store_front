@@ -1,12 +1,16 @@
-(function(){
+/*! angular-flash - v2.3.0 - 2016-04-24
+* https://github.com/sachinchoolur/angular-flash
+* Copyright (c) 2016 Sachin; Licensed MIT */
 
-angular.module('StoreFront')
+'use strict';
 
-.run(['$rootScope', function ($rootScope) {
+var app = angular.module('ngFlash', []);
+
+app.run(['$rootScope', function ($rootScope) {
     return $rootScope.flashes = [];
-}])
+}]);
 
-.directive('dynamic', ['$compile', function ($compile) {
+app.directive('dynamic', ['$compile', function ($compile) {
     return {
         restrict: 'A',
         replace: true,
@@ -17,9 +21,9 @@ angular.module('StoreFront')
             });
         }
     };
-}])
+}]);
 
-.directive('applytransclude', ['$compile', function ($compile) {
+app.directive('applytransclude', ['$compile', function ($compile) {
     return {
         restrict: 'A',
         link: function link(scope, ele, attrs) {
@@ -28,9 +32,9 @@ angular.module('StoreFront')
             });
         }
     };
-}])
+}]);
 
-.directive('closeFlash', ['$compile', '$rootScope', 'Flash', function ($compile, $rootScope, Flash) {
+app.directive('closeFlash', ['$compile', '$rootScope', 'Flash', function ($compile, $rootScope, Flash) {
     return {
         link: function link(scope, ele, attrs) {
             return ele.on('click', function () {
@@ -40,9 +44,9 @@ angular.module('StoreFront')
             });
         }
     };
-}])
+}]);
 
-.directive('flashMessage', ['Flash', function (Flash) {
+app.directive('flashMessage', ['Flash', function (Flash) {
     return {
         restrict: 'E',
         scope: {
@@ -67,9 +71,9 @@ angular.module('StoreFront')
         transclude: Flash.config.templateTransclude,
         template: '\n                <div ng-repeat="flash in $root.flashes track by $index">\n                    ' + Flash.config.template + '\n                </div>\n            '
     };
-}])
+}]);
 
-.provider('Flash', function () {
+app.provider('Flash', function () {
     var defaultConfig = {};
     var templatePresets = {
         bootstrap: {
@@ -174,4 +178,3 @@ angular.module('StoreFront')
         return dataFactory;
     }];
 });
-})()

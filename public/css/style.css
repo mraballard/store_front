@@ -1,8 +1,16 @@
+body {
+  /*background: red;*/
+}
+
 header {
   text-align: center;
 }
 a {
   margin: 15px;
+}
+a:hover {
+  margin: 15px;
+  text-decoration: none;
 }
 .red {
   background-color: red;

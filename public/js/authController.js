@@ -10,6 +10,7 @@
     var self = this;
     this.loginSuccess = function() {
       var message = 'You successfully logged in!';
+      console.log(message);
       Flash.create('login', message);
     };
     this.signupSuccess = function() {
