@@ -19,6 +19,12 @@
       // controller: 'AuthController',
       // controllerAs: 'authCtrl'
     })
+    .state('password',{
+      url: '/password',
+      templateUrl: 'password.html',
+      // controller: 'AuthController',
+      // controllerAs: 'authCtrl'
+    })
     .state('signup',{
       url: '/signup',
       templateUrl: 'signup.html',
