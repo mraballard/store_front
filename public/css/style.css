@@ -3,8 +3,8 @@ header {
 }
 a {
   margin: 15px;
+  color: #afafaf
 }
-
 a:hover {
   margin: 15px;
   text-decoration: none;
@@ -15,7 +15,17 @@ a:hover {
 .bottom-margin {
   margin-bottom: 10px;
 }
-
 .backdrop {
   background-color: #eeeeee;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+.page-header {
+  font-family: monospace;
+  font-weight: 700;
+}
+.jumbotron {
+  background-color: rgba(1,119,26,0.5);
+  background-image: url("http://www.intrawallpaper.com/static/images/abstract-mosaic-background.png");
 }
