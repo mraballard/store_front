@@ -33,19 +33,33 @@
       return sum;
     }
     // GET PRODUCTS FROM DATABASE
-    this.getProducts = function(searchStr) {
+    this.getProducts = function(searchStr,categoryOrName) {
       $http.get('/api/products/')
       .catch(function(error){
         console.log(error);
       })
       .then(function(response){
         console.log('getProducts function' +response);
-        self.all = response.data.products.filter(
-          function(el)  {
-          return el.name.toLowerCase().indexOf(self.searchStr.toLowerCase()) !== -1;
-          // return this product if the name contains the search string
-        });
+        if (categoryOrName === 'name') {
+          self.all = response.data.products.filter(
+            function(el)  {
+            return el.name.toLowerCase().indexOf(self.searchStr.toLowerCase()) !== -1;
+            // return this product if the name contains the search string
+          });
+        }
+        if (categoryOrName === 'category') {
+          self.all = response.data.products.filter(
+            function(el)  {
+            return el.category.toLowerCase().indexOf(self.searchStr.toLowerCase()) !== -1;
+            // return this product if the name contains the search string
+          });
+        }
+
       })
+      .catch(function(error){
+        console.log(error);
+      });
+    };
       .catch(function(error){
         console.log(error);
       });

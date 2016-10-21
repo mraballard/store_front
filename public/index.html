@@ -37,11 +37,14 @@
             <a ui-sref-active="active" ui-sref="home">Products</a>
           </nav>
         </div>
-        <div class="" ng-show="authCtrl.user">
-          <br>
-          <h3>Logged in as: {{authCtrl.user.username}}</h3>
-        </div>
       </header>
+      <div class="">
+        <a ng-click="storeCtrl.loadCategory('electronics')" ui-sref-active="active" ui-sref="home">Electronics</a>
+        <a ng-click="storeCtrl.loadCategory('furniture')" ui-sref-active="active" ui-sref="home">Furniture</a>
+        <a ng-click="storeCtrl.loadCategory('sportingGoods')" ui-sref-active="active" ui-sref="home">Sporting Goods</a>
+        <a ng-click="storeCtrl.loadCategory('petSupplies')" ui-sref-active="active" ui-sref="home">Pet Supplies</a>
+        <a ng-click="storeCtrl.loadCategory('fitness')" ui-sref-active="active" ui-sref="home">Fitness</a>
+      </div>
       <main ui-view>
       </main>
     </div>
