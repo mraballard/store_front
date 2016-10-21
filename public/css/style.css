@@ -4,6 +4,17 @@ header {
 a {
   margin: 15px;
 }
+a:hover {
+  margin: 15px;
+  text-decoration: none;
+}
 .red {
   background-color: red;
+}
+.bottom-margin {
+  margin-bottom: 10px;
+}
+
+.backdrop {
+  background-color: #eeeeee;
 }
