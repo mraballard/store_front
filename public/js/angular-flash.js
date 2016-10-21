@@ -4,7 +4,7 @@ angular.module('StoreFront')
 
 .run(['$rootScope', function ($rootScope) {
     return $rootScope.flashes = [];
-}]);
+}])
 
 .directive('dynamic', ['$compile', function ($compile) {
     return {
@@ -17,7 +17,7 @@ angular.module('StoreFront')
             });
         }
     };
-}]);
+}])
 
 .directive('applytransclude', ['$compile', function ($compile) {
     return {
@@ -28,7 +28,7 @@ angular.module('StoreFront')
             });
         }
     };
-}]);
+}])
 
 .directive('closeFlash', ['$compile', '$rootScope', 'Flash', function ($compile, $rootScope, Flash) {
     return {
@@ -40,7 +40,7 @@ angular.module('StoreFront')
             });
         }
     };
-}]);
+}])
 
 .directive('flashMessage', ['Flash', function (Flash) {
     return {
@@ -67,7 +67,7 @@ angular.module('StoreFront')
         transclude: Flash.config.templateTransclude,
         template: '\n                <div ng-repeat="flash in $root.flashes track by $index">\n                    ' + Flash.config.template + '\n                </div>\n            '
     };
-}]);
+}])
 
 .provider('Flash', function () {
     var defaultConfig = {};
