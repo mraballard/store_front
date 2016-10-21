@@ -62,23 +62,23 @@ var authorize = function(req, res, next) {
   else{
     next()
   }
-}
+};
 
-router.get('/:id', authorize, function(req,res){
-  var query = User.findById({_id: req.params.id})
-
-  query.then(function(user){
-    res.json(user)
-  })
-  .catch(function(err){
-    res.json({message: 'nope' + err});
-  });
-});
+// router.get('/:id', authorize, function(req,res){
+//   var query = User.findById({_id: req.params.id})
+//
+//   query.then(function(user){
+//     res.json(user)
+//   })
+//   .catch(function(err){
+//     res.json({message: 'nope' + err});
+//   });
+// });
 
 // ===========================
 // USER UPDATE PASSWORD
 // ===========================
-router.put('/:id',function(req,res){
+router.patch('/:id/reset', function(req,res){
   console.log('this is the password', req.body.password);
   User.findById(req.params.id).exec()
   .catch(function(err){
@@ -88,6 +88,7 @@ router.put('/:id',function(req,res){
     if(req.body.password){
       user.setPassword(req.body.password, function(){
         user.save();
+        console.log('password changed');
         res.json({status:200, user: user })
       })
     }
