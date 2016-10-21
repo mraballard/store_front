@@ -49,13 +49,16 @@
         <a ng-click="storeCtrl.getProducts('sportingGoods','category')" ui-sref-active="active" ui-sref="home">Sporting Goods</a>
         <a ng-click="storeCtrl.getProducts('petSupplies','category')" ui-sref-active="active" ui-sref="home">Pet Supplies</a>
         <a ng-click="storeCtrl.getProducts('fitness','category')" ui-sref-active="active" ui-sref="home">Fitness</a>
+      </div>
 
       <div class="section col-xs-8 col-sm-offset-2">
         <flash-message class="alert-success" duration="2000" show-close="true" on-dismiss="myCallback(flash);"></flash-message>
       </div>
+
       <br>
+
       <main ui-view>
       </main>
-    </div>
+
   </body>
 </html>
