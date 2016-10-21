@@ -15,3 +15,10 @@ a:hover {
 .red {
   background-color: red;
 }
+.bottom-margin {
+  margin-bottom: 10px;
+}
+
+.backdrop {
+  background-color: #eeeeee;
+}
