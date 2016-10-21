@@ -10,12 +10,10 @@
     var self = this;
     $scope.$on('UserLoggedIn', function(eventObj, data){  //saves user data on log in
       self.user = data;
-      console.log('storeController user: '+self.user);
     });
     $scope.$on('UserLoggedOut', function(eventObj){  //empties cart when user logs out
       self.cart = [];
       self.user = null;
-      console.log('cart emptied on logout');
     });
     this.cartHasItems = false; // boolean for empty cart
     this.cartTotal = 0;
@@ -39,7 +37,6 @@
         console.log(error);
       })
       .then(function(response){
-        console.log('getProducts function' +response);
         if (categoryOrName === 'name') {
           self.all = response.data.products.filter(
             function(el)  {
@@ -50,16 +47,11 @@
         if (categoryOrName === 'category') {
           self.all = response.data.products.filter(
             function(el)  {
-            return el.category.toLowerCase().indexOf(self.searchStr.toLowerCase()) !== -1;
+            return el.category.toLowerCase().indexOf(searchStr.toLowerCase()) !== -1;
             // return this product if the name contains the search string
           });
         }
-
       })
-      .catch(function(error){
-        console.log(error);
-      });
-    };
       .catch(function(error){
         console.log(error);
       });
@@ -101,8 +93,6 @@
       self.cart.splice(index,1);
     };
     this.placeOrder = function(order,user){
-      console.log('this is the order');
-      console.log(order);
       this.existingOrders = true;
       $http.post(`/api/orders`, {order: order, user: user})
       .then(function(response){
@@ -119,16 +109,13 @@
         console.log(error);
       })
       .then(function(response){
-        console.log('this is response from getting orders:');
-        console.log(response);
         return self.orders = response.data;
       })
       .then(function(orders){
-        console.log(orders);
         $state.go('orders',{url: '/orders'});
       });
     }
-    this.getProducts();
+    this.getProducts('','name');
   }
 
 })()
