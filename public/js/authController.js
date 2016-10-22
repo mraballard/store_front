@@ -35,14 +35,15 @@
       .then(function(response){
         console.log('this is the response');
         console.log(response);
-        $state.go('login', {url: '/login'});
+        self.user = response.data.user;
+        $scope.$emit('UserLoggedIn', self.user);
       })
       .catch(function(error){
         console.log(error);
       })
       .then(function(){
         self.signupSuccess();
-        self.isUserLoggedIn = true;
+        $state.go('home', {url: '/home'});
       });
     } // closes signup function
     this.login = function(userPass) {

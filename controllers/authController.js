@@ -19,7 +19,7 @@ router.post('/signup', function(req, res) {
       if (err) return res.json({ user : user });
 
       // Success
-      res.json(201,'success');
+      res.json({status: 201, message: 'success', user: user});
     });
 });
 
